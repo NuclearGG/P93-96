@@ -21,7 +21,9 @@ const firebaseConfig = {
     }
 
     function addRoom(){
-      room_name = document.getElementById('room_name').value;
+     rn = document.getElementById('room_name').value;
+      rn_lc = rn.toLowerCase();
+      room_name = rn_lc.replaceAll(" ", "_")
       firebase.database().ref('/').child(room_name).update({
         purpose: "why reading this?"
       });
